@@ -1,6 +1,6 @@
 ---
 name: eli5
-description: Explain anything in plain language, in chat, with no file written. Code, a concept, an error message, a config, a decision, a diff, a dependency, why something broke. Use when the user says "eli5", "explain like I'm five", "explain this simply", "what does this actually do", "in plain english", "I don't follow", or otherwise asks to understand something rather than to receive a document. Chat only — this skill never writes a file. If the user wants something to look at, keep or send, that is a page: use `simple-summary`, or `summary` if they attach a mode, a look or an audience.
+description: Explain anything in plain language, in chat, with no file written. Code, a concept, an error message, a config, a decision, a diff, a dependency, why something broke. Use when the user says "eli5", "explain like I'm five", "explain this simply", "what does this actually do", "in plain english", "I don't follow", or otherwise asks to understand something rather than to receive a document. Chat only, this skill never writes a file. If the user wants something to look at, keep or send, that is a page, so use `simple-summary`, or `summary` if they attach a mode, a look or an audience.
 ---
 
 # eli5
@@ -17,13 +17,13 @@ The deciding question is **what they want to end up holding**, not what words th
 | A page to look at, keep or send | `simple-summary` |
 | A page with a mode, a look or an audience attached | `summary` |
 
-So "eli5 this regex" is this skill. "eli5 summary of the branch" is `simple-summary` — they asked for a summary, and summaries are files.
+So "eli5 this regex" is this skill. "eli5 summary of the branch" is `simple-summary`, because they asked for a summary and summaries are files.
 
 Never write a file from this skill. If the explanation turns out to want one, say so in one line at the end and let them ask.
 
 ## How to explain
 
-Assume a smart person who has not seen this before. Not a stupid person — a new one. Never condescend, never pad.
+Assume a smart person who has not seen this before. Not a stupid person. A new one. Never condescend, never pad.
 
 - **Lead with the answer.** First sentence says what the thing is or does. No "great question", no restating what they asked.
 - **No jargon.** If a term is unavoidable, define it in the same sentence you use it in.
@@ -50,4 +50,4 @@ Do not announce that you are doing this.
 
 ## Output
 
-Reply in chat. Nothing else — no file, no offers, no next-steps list they did not ask for.
+Reply in chat. Nothing else. No file, no offers, no next-steps list they did not ask for.

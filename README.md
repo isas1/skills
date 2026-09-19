@@ -24,11 +24,11 @@ Only `summary` has these. They stack; accessible wins where it conflicts.
 
 `simple-summary` and `summary` build the same page, to the same spec:
 
-> Create a single page HTML summary of the conversation, branch, work tree or user instructions. Make it visual and digestible without additional cognitive fatigue. Minimal text, clear flow of information. Opt for charts and diagrams over long explanations. Default to clean off-white background, `#333333` text. Create a flow for the user to follow and use typography design principles — spacing, line height, balanced text, and Z and F reading patterns.
+> Create a single page HTML summary of the conversation, branch, work tree or user instructions. Make it visual and digestible without additional cognitive fatigue. Minimal text, clear flow of information. Opt for charts and diagrams over long explanations. Default to clean off-white background, `#333333` text. Create a flow for the user to follow and use typography design principles such as spacing, line height, balanced text, and Z and F reading patterns.
 
 One self-contained file. No build step, no CDN, no framework, no external assets. `#FAF9F7` ground, `#333333` ink, one accent, system fonts, inline SVG, 65-character measure. Survives Print to PDF.
 
-Both read the actual target before writing — `git status`, `git log`, `git diff`, the changed files — rather than summarising from memory.
+Both read the actual target before writing (`git status`, `git log`, `git diff`, the changed files) rather than summarising from memory.
 
 ## Install
 
