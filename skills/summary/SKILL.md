@@ -1,23 +1,30 @@
 ---
 name: summary
-description: A single-page HTML summary of a conversation, branch, work tree or set of user instructions, with optional modes for accessible (ADHD, autistic, dyslexia), artistic and animated, plus audience variants for a client or a handover. Visual and digestible, charts and diagrams over long explanations. Use when the user asks for a summary with something attached to it, such as a mode, a look, an audience or a feeling. Examples include "summary, make it ADHD friendly", "recap but make it look good", "summarise this for a client", "wrap up and animate it", "handover page". If they want the plain version with no options, use `simple-summary`. If they want an explanation in chat and no file at all, use `eli5-succinct`.
+description: A single-page HTML summary of a conversation, branch, work tree or set of user instructions. Visual and digestible, charts and diagrams over long explanations. Use whenever the user asks for a summary, recap, wrap-up or handover page, plain or with something attached. Bare asks like "summary", "simple summary", "quick summary", "just summarise this" build the plain page. Attached asks like "summary, make it ADHD friendly", "recap but make it look good", "summarise this for a client", "wrap up and animate it", "handover page" build the same page in the matching mode or audience variant (accessible for ADHD, autistic or dyslexia; artistic; animated). If they want an explanation in chat and no file at all, use `eli5-succinct`.
 ---
 
 # summary
 
-The one with options. Same page, same house style as `simple-summary`, plus modes and audience variants.
+The page skill. One self-contained HTML page, built to one house style. A bare ask builds the plain page; a mode, look or audience attached builds the same page dressed for it.
 
 ## Routing
 
-This skill owns anything about how the page should look or feel.
+This skill owns every summary that ends in a page. The only thing it does not own is an explanation the user wants in chat with no file.
 
 | They say | Skill |
 |---|---|
-| "summary" with a mode, look or audience attached | this one |
-| "simple summary", bare "summary" | `simple-summary` |
+| "summary", "simple summary", "quick summary", bare "summarise this" | this one, plain (see **Plain vs attached**) |
+| "summary" with a mode, look or audience attached | this one, that mode |
 | "eli5 succinct on this function" (explain, no file) | `eli5-succinct` |
 
 If you are already here and the user then asks for a mode, stay here. Do not re-route mid-task.
+
+## Plain vs attached
+
+The page and its spec are identical either way. What changes is only the reply and whether modes come up.
+
+- **Plain** (nothing attached): build the default page, hand over the path, say one short plain-language thing about it. Do not offer or mention modes. If they want more, they will ask.
+- **Attached** (a mode, look or audience named): build the page in that mode, then you may suggest at most one complementary mode in a single closing line.
 
 ## Target
 
@@ -75,17 +82,21 @@ At most one table per page, and only for genuinely parallel short items. If you 
 
 If a paragraph is doing a diagram's job, replace it. Every section must earn its place. Cut anything that is only there for symmetry.
 
-**Budget.** These are limits, not suggestions. Count them before you finish.
+**Budget.** These are hard limits, not suggestions. The goal is a page carried by pictures, where prose is captions between drawings, not the other way round. Run this checklist against the finished markup **before you write the file**, and if any line fails, fix it and check again:
 
-- **Under 200 words of prose on the whole page.** Headings, labels and figures do not count. Body text does.
-- **Every section contains a drawing.** A section that is only words is a failed section. Draw it or cut it.
-- **Never three text blocks in a row.** If you have written three, replace one with a picture.
-- **No continuous prose longer than two sentences**, anywhere.
+1. **Count the body words.** Strip headings, labels, axis text and figures; count what is left. Over 200 means cut until it is under. Do not write the file first and count later.
+2. **Every section has a drawing.** Point at the chart, diagram, timeline or mark in each one. A section that is only words is a failed section: draw it or cut it.
+3. **No three text blocks in a row.** If you find three, one becomes a picture.
+4. **No continuous prose longer than two sentences**, anywhere.
+5. **More drawings than paragraphs, overall.** If you can count more `<p>` blocks than distinct visuals, the balance is wrong.
 
-If the content genuinely resists being drawn, that is a sign the page has too many sections, not that it needs more words.
+If the content genuinely resists being drawn, that is a sign the page has too many sections, not that it needs more words. Cut the section, do not pad it.
 
 **Typography.**
-- System font stack, unless the project has its own type. If it does, use the project's.
+- Use the project's own type if it has one. Otherwise use an explicit stack with real fallbacks, so the page looks the same on macOS, Windows and Linux rather than dropping to DejaVu Sans on Linux:
+  - Text: `font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Liberation Sans", Helvetica, Arial, sans-serif;`
+  - Data, labels and figures: `font-family: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", "DejaVu Sans Mono", Menlo, Consolas, monospace;`
+- A bare `system-ui` or `sans-serif` is not enough: name the fallbacks so Linux lands on Roboto or Noto, not DejaVu.
 - Body 16px minimum. Line height 1.5 or more.
 - Measure capped near 65 characters. This is what "balanced text" means here, and long lines are the main cause of reading fatigue.
 - One large title, clear section headings, nothing competing in between.
@@ -99,6 +110,17 @@ If the content genuinely resists being drawn, that is a sign the page has too ma
 - No pure white, no pure black, no gradients behind text.
 
 **Constraints.** No paragraph longer than two sentences. Bullets under ten words. Must survive Print to PDF, so no fixed viewport heights and nothing that only appears on scroll. Light by default; add a dark variant only when the page will be viewed inside a container with its own theme setting.
+
+**Drawing quality.** A drawing that overlaps or clips its own labels is worse than a table. You are writing SVG blind, so build the geometry so collisions cannot happen, rather than hoping they do not:
+
+- Give every SVG an explicit `viewBox` and pad it. Leave a margin at least the height of one label on every side so nothing sits against the edge.
+- Donut and pie labels go outside the arc, joined by a leader line if needed, never on top of the stroke. If two segments are too thin to label apart, merge them or switch to a bar.
+- Bar and dot labels sit clear of the mark, in a reserved gutter, not floating over it.
+- Text over a stroke or fill is only allowed when it is on its own reserved band with no mark behind it.
+- Long axis labels rotate or wrap; they never run past the plot into the next element.
+- Compute positions from the values; do not hand-place magic numbers that only work for today's data.
+
+**Look at what you made.** SVG written blind is often wrong. If you can open or render the file, do it and check for overlapping text, clipped marks, labels off the edge, and marks with no gap between them. Fix what you see before handing over. If you cannot render it, re-read every SVG against the rules above as your check.
 
 ## Write in the reader's own language
 
@@ -122,7 +144,7 @@ Everything above is the default. Modes are optional. Read the file only if the u
 
 Modes stack. Accessible always wins where it conflicts with artistic or animated.
 
-Suggest a mode when it would clearly help. Write the requested page first, then add one line at the end naming the mode and what it would change. Never ask before writing, never suggest more than one, and drop it if the user ignores it.
+Suggest a mode only on the attached path, and only when it would clearly help. Write the requested page first, then add one line at the end naming the mode and what it would change. Never ask before writing, never suggest more than one, and drop it if the user ignores it. On the plain path, say nothing about modes at all.
 
 ## Variants
 
@@ -136,4 +158,16 @@ Write to `summary-<slug>-<YYYY-MM-DD>.html` in the working directory, or where t
 
 ## Step 4: reply
 
-The file path, plus at most one line suggesting a mode. The page is the summary. Do not repeat it in chat.
+The page is the summary. Do not repeat it in chat.
+
+- **Plain path:** a short plain-language note, then the path. Under 100 words, no jargon, lead with the answer. This is just so they know what they are opening. No mode suggestions, no offers, no next-steps list they did not ask for.
+
+  ```
+  <One line: what the page covers.>
+
+  <Two or three sentences: what it found, in plain words.>
+
+  <path/to/summary-slug-date.html>
+  ```
+
+- **Attached path:** the file path, plus at most one line suggesting a complementary mode.
