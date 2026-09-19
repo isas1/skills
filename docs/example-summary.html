@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skills — repo summary</title>
+<style>
+:root{
+  --bg:#FAF9F7; --ink:#333333; --muted:#6B6B6B; --line:#E5E2DE;
+  --surface:#F2EFEB; --accent:#C4603D;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"DejaVu Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.page{max-width:920px;margin:0 auto;padding:64px 40px 80px}
+.measure{max-width:65ch}
+
+/* Z: title left, key fact right */
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap}
+h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
+h1 .dot{color:var(--accent)}
+.lede{font-size:19px;color:var(--muted);margin:0;max-width:46ch}
+.stamp{font-family:var(--mono);font-size:13px;color:var(--muted);text-align:right;white-space:nowrap}
+.stamp b{display:block;font-size:30px;color:var(--ink);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+hr{border:0;border-top:1px solid var(--line);margin:36px 0}
+
+h2{font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);
+   font-weight:600;margin:0 0 18px}
+section{margin-top:44px}
+
+/* at a glance */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+       border:1px solid var(--line)}
+.fact{background:var(--bg);padding:16px 18px}
+.fact .n{font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.fact .l{font-size:13px;color:var(--muted);margin-top:3px}
+
+figure{margin:0}
+figcaption{font-size:13px;color:var(--muted);margin-top:10px}
+
+table{border-collapse:collapse;width:100%;font-size:15px}
+th{text-align:left;font-size:12px;letter-spacing:.07em;text-transform:uppercase;
+   color:var(--muted);font-weight:600;padding:0 14px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:11px 14px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.k{font-family:var(--mono);font-size:14px;white-space:nowrap}
+td.why{color:var(--muted)}
+tr:last-child td{border-bottom:0}
+
+ul{margin:0;padding-left:18px}
+li{margin-bottom:7px}
+li::marker{color:var(--accent)}
+.open li{color:var(--ink)}
+.open li span{color:var(--muted)}
+
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);
+      display:flex;justify-content:space-between;font-size:13px;color:var(--muted);
+      font-family:var(--mono);gap:20px;flex-wrap:wrap}
+@media (max-width:720px){
+  .page{padding:40px 20px 56px}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  h1{font-size:32px}
+  .stamp{text-align:left}
+}
+</style></head><body>
+<div class="page">
+
+  <div class="top">
+    <div>
+      <h1>skills<span class="dot">.</span></h1>
+      <p class="lede">Three Claude Code skills that route on what you end up holding, not on which words you used.</p>
+    </div>
+    <div class="stamp"><b>3</b>skills · 1 repo<br>MIT · 462 lines</div>
+  </div>
+
+  <hr>
+
+  <section style="margin-top:0">
+    <h2>At a glance</h2>
+    <div class="facts">
+      <div class="fact"><div class="n">3</div><div class="l">skills</div></div>
+      <div class="fact"><div class="n">3</div><div class="l">modes, on <code>summary</code></div></div>
+      <div class="fact"><div class="n">0</div><div class="l">dependencies</div></div>
+      <div class="fact"><div class="n">1</div><div class="l">file out, always</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How a request routes</h2>
+    <figure>
+      <svg viewBox="0 0 840 250" width="100%" role="img"
+           aria-label="One request branches to three skills: eli5-succinct returns a chat answer, simple-summary returns one page, summary returns one page with modes.">
+        <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Inter,sans-serif">
+          <text x="0" y="118" font-size="13" fill="#6B6B6B">you ask</text>
+          <circle cx="86" cy="125" r="6" fill="#C4603D"/>
+          <path d="M86 125 C 200 125, 210 42, 330 42"  stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M86 125 C 200 125, 210 125, 330 125" stroke="#333" stroke-width="1.5" fill="none"/>
+          <path d="M86 125 C 200 125, 210 208, 330 208" stroke="#333" stroke-width="1.5" fill="none"/>
+          <circle cx="330" cy="42" r="4" fill="#333"/>
+          <circle cx="330" cy="125" r="4" fill="#333"/>
+          <circle cx="330" cy="208" r="4" fill="#333"/>
+          <text x="348" y="38"  font-size="15" font-weight="600" fill="#333" font-family="ui-monospace,Menlo,monospace">eli5-succinct</text>
+          <text x="348" y="58"  font-size="13" fill="#6B6B6B">to understand something, briefly → chat, never a file</text>
+          <text x="348" y="121" font-size="15" font-weight="600" fill="#333" font-family="ui-monospace,Menlo,monospace">simple-summary</text>
+          <text x="348" y="141" font-size="13" fill="#6B6B6B">a page to look at or send → one HTML page, no options</text>
+          <text x="348" y="204" font-size="15" font-weight="600" fill="#333" font-family="ui-monospace,Menlo,monospace">summary</text>
+          <text x="348" y="224" font-size="13" fill="#6B6B6B">a page with a look or an audience → one HTML page, with modes</text>
+        </g>
+      </svg>
+      <figcaption>The deciding question is what you want to end up holding, not the words used.</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>What each one does</h2>
+    <table>
+      <tr><th>Skill</th><th>Say</th><th>You get</th></tr>
+      <tr><td class="k">eli5-succinct</td><td>"eli5 succinct on this function"</td><td>A short plain-language answer in chat. Never a file.</td></tr>
+      <tr><td class="k">simple-summary</td><td>"simple summary"</td><td>One HTML page. No options.</td></tr>
+      <tr><td class="k">summary</td><td>"summary, make it ADHD friendly"</td><td>One HTML page, with modes.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Decisions made</h2>
+    <table>
+      <tr><th>Decision</th><th>Why</th></tr>
+      <tr><td>Route on output type, not vocabulary</td><td class="why">"eli5 summary" matched two skills when eli5 was only a modifier</td></tr>
+      <tr><td>Modes live in separate files</td><td class="why">The default stays cheap to load</td></tr>
+      <tr><td>Both page skills share one spec</td><td class="why">Two skills drifting apart would produce two house styles</td></tr>
+      <tr><td>Gather before writing</td><td class="why">Summarising from memory is where invented status comes from</td></tr>
+      <tr><td>No animation library</td><td class="why">A CDN link breaks the one-file rule and dies offline</td></tr>
+    </table>
+  </section>
+
+  <section class="open">
+    <h2>Open</h2>
+    <ul class="measure">
+      <li>Routing is fuzzy description matching, not a hard rule. <span>The case to watch is "eli5 summary of this branch", which should return a file.</span></li>
+      <li>Accessible is a mode, not the default. <span>Undecided whether it should be the other way round, with a plain opt-out.</span></li>
+      <li>Skill paths shift between agent versions. <span>The README hedges rather than promising a path.</span></li>
+    </ul>
+  </section>
+
+  <div class="foot">
+    <span>github.com/isas1/skills</span>
+    <span>MIT · one file out, no build step</span>
+  </div>
+
+</div>
+</body></html>
