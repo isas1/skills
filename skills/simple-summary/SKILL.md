@@ -1,93 +1,98 @@
 ---
 name: simple-summary
-description: An ELI5, succinct summary — a short plain-language message in chat, plus one self-contained HTML file. No modes, no options, no styling choices. Use when the user says "simple summary", "eli5", "eli5 summary", "quick summary", "just summarise this", "keep it simple", or otherwise asks for a summary while signalling they want the short version. If the user asks for a summary with any styling, mode or audience attached — accessible, ADHD, artistic, animated, for a client, for handover — use the `summary` skill instead.
+description: One single-page HTML summary of a conversation, branch, work tree or set of user instructions — visual, digestible, no modes and no options. Plus a short plain-language note in chat. Use when the user says "simple summary", "quick summary", "just summarise this", "keep it simple", or asks for a summary with nothing attached to it. If they attach a mode, a look or an audience — accessible, ADHD, artistic, animated, for a client, for handover — use `summary` instead. If they want an explanation in chat and no file at all, use `eli5`.
 ---
 
 # simple-summary
 
-The short one. A person who is tired, busy or new asks what happened. Tell them, in chat, in plain words. Then leave one HTML file behind so they can look at it later or send it on.
+The plain one. Build the page, hand over the path, say one short thing about it. No choices offered.
 
 ## Routing
 
-This skill is the plain path. Hand off to `summary` the moment the user attaches anything to the request:
-
 | They say | Skill |
 |---|---|
-| "simple summary", "eli5", "quick summary" | this one |
-| "summary" with nothing attached | this one |
-| "summary, make it ADHD friendly" | `summary` |
-| "summary, make it look good" / "artistic" | `summary` |
-| "animate it", "make it move" | `summary` |
+| "simple summary", "quick summary", bare "summary" | this one |
+| "summary, make it ADHD friendly" / "artistic" / "animate it" | `summary` |
 | "summary for a client" / "for handover" | `summary` |
+| "eli5 this function" — explain, no file | `eli5` |
 
-Do not offer modes. Do not mention that the other skill exists. If they want more, they will ask, and `summary` will pick it up.
+Do not offer modes. Do not mention the other skills. If they want more, they will ask.
 
-## Scope
+## Target
 
-Ask nothing if the target is obvious. Default target, in order:
+Ask nothing if the target is obvious. Default, in order:
 
-1. What the user explicitly named (a branch, a PR, a file, a topic)
-2. The current session
+1. What the user explicitly named — a branch, a PR, a file, a topic
+2. The current session or conversation
 3. The current repo or working tree
 
 If two targets are equally plausible, pick one, say which in one line, and continue.
 
-## The chat message
+## Step 1 — gather
 
-Write this first, before the file. It is the deliverable the user actually reads.
+Before writing anything, go and look. Do not summarise from memory of the conversation alone.
 
-Rules:
+- **Working tree or repo:** `cd` to the directory. Run `git status`, `git log --oneline -20`, `git diff --stat`. Read the files that actually changed.
+- **Branch:** diff it against its base. `git log --oneline <base>..HEAD` and `git diff --stat <base>...HEAD`.
+- **Conversation or session:** use what is in front of you.
+- **User instructions:** read the actual instructions file, do not paraphrase from memory.
 
-- ELI5. Explain it the way you would to a smart person who has not seen any of this.
-- No jargon. If a technical term is unavoidable, define it in the same sentence.
-- Succinct. Aim for under 150 words.
-- Lead with the answer. No preamble, no "here is a summary of".
-- Never invent progress, status or numbers. "Not known" is a valid answer and belongs in the message.
-- Write in the reader's own language — match how they have been talking to you in this session. Do not announce that you are doing this.
+Never invent progress, status or numbers. "Not known" is a real finding and belongs on the page.
 
-### Template
+## Step 2 — build the page
 
-Start from this. Edit it freely — it is a shape, not a script. Drop any section that has nothing real in it.
+> Create a single page HTML summary of the conversation, branch, work tree or user instructions. Make it visual and digestible without additional cognitive fatigue. Minimal text, clear flow of information. Opt for charts and diagrams over long explanations. Default to clean off-white background, `#333333` text. Create a flow for the user to follow and use typography design principles — spacing, line height, balanced text, and Z and F reading patterns.
 
-```
-**<What this is, one line.>**
+Concretely, that means:
 
-<One short paragraph: what happened, in plain words.>
+**One file.** Self-contained HTML. No build step, no CDN, no external assets, no framework. Inline SVG only.
 
-**Where it stands**
-- <fact or state, under ten words>
-- <fact or state, under ten words>
-- <fact or state, under ten words>
+**Flow.** The page is a path, not a pile. Each section answers the question the previous one raised. Start with the answer, never a preamble.
 
-**Still open**
-- <the unresolved thing, and who decides it>
+1. Title plus one line — what this is
+2. At a glance — three to five facts, states or numbers
+3. The body — carried by visuals, not paragraphs
+4. What is open or next — omit if genuinely empty
 
-<One line: the single next step, or the file path.>
-```
+**Reading patterns.** Top of page is scanned in a Z: put the title top-left, the single most important fact top-right, and the entry into the body along the diagonal. Below that, text-heavy sections are scanned in an F: front-load every heading and every bullet with the word that matters, because the right-hand end of each line does not get read.
 
-## The HTML file
+**Visual over verbal.** Reach for the picture first:
+- sequential → a flow or timeline
+- quantity or change → a chart
+- something that changed → two columns, before and after
+- parallel items → a short table
 
-One file. Self-contained. No build step, no CDN, no external assets, no framework.
+If a paragraph is doing a diagram's job, replace it.
 
-Same content as the chat message, laid out to be read on a screen:
+**Typography.**
+- System font stack.
+- Body 16px minimum. Line height 1.5 or more.
+- Measure capped near 65 characters — this is what "balanced text" means here; long lines are the main cause of reading fatigue.
+- One large title, clear section headings, nothing competing in between.
+- Left aligned. Never justify — justification opens rivers of white space that break scanning.
+- Generous spacing. Space between sections should be clearly larger than space within them, so the eye gets the grouping without a border.
 
-1. Title plus one line.
-2. Three to five facts at a glance.
-3. The body — a flow, a short table, or a before and after. Inline SVG only.
-4. What is open or next. Omit if empty.
-
-House style, fixed, not negotiable:
-
-- Off-white background `#FAF9F7`, ink `#333333`, one accent colour. No pure white, no pure black, no gradients behind text.
+**Colour.**
+- Background `#FAF9F7`. Ink `#333333`. One accent.
 - Supporting tones: muted text `#6B6B6B`, hairlines `#E5E2DE`, raised surfaces `#F2EFEB`.
-- System font stack. Body 16px minimum, line height 1.5 or more, measure capped near 65 characters.
-- Left aligned. Never justify.
-- Must survive Print to PDF: no fixed viewport heights, no content that only appears on scroll.
+- No pure white, no pure black, no gradients behind text.
 
-No animation. No decoration. No dark variant.
+**Constraints.** No paragraph longer than two sentences. Bullets under ten words. Must survive Print to PDF — no fixed viewport heights, nothing that only appears on scroll. No animation, no decoration, no dark variant.
 
-## Output
+## Step 3 — write the file
 
 Write to `summary-<slug>-<YYYY-MM-DD>.html` in the working directory, or where the user says.
 
-Reply with the chat message, then the file path on its own line at the end. Nothing else — no mode suggestions, no offers, no next-steps list the user did not ask for.
+## Step 4 — reply
+
+A short plain-language note, then the path. Keep it under 100 words, no jargon, lead with the answer. The page is the deliverable; this is just so they know what they are opening.
+
+```
+<One line: what the page covers.>
+
+<Two or three sentences: what it found, in plain words.>
+
+<path/to/summary-slug-date.html>
+```
+
+Nothing else. No mode suggestions, no offers, no next-steps list they did not ask for.
