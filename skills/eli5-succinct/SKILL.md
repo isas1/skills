@@ -1,11 +1,11 @@
 ---
-name: eli5
-description: Explain anything in plain language, in chat, with no file written. Code, a concept, an error message, a config, a decision, a diff, a dependency, why something broke. Use when the user says "eli5", "explain like I'm five", "explain this simply", "what does this actually do", "in plain english", "I don't follow", or otherwise asks to understand something rather than to receive a document. Chat only, this skill never writes a file. If the user wants something to look at, keep or send, that is a page, so use `simple-summary`, or `summary` if they attach a mode, a look or an audience.
+name: eli5-succinct
+description: Explain anything in plain language, briefly, in chat, with no file written. Code, a concept, an error message, a config, a decision, a diff, a dependency, why something broke. Use when the user says "eli5 succinct", "eli5", "explain like I'm five", "explain this simply", "what does this actually do", "in plain english", "I don't follow", or otherwise asks to understand something rather than to receive a document. Succinct by default, under 150 words. Chat only, this skill never writes a file. If the user wants something to look at, keep or send, that is a page, so use `simple-summary`, or `summary` if they attach a mode, a look or an audience.
 ---
 
-# eli5
+# eli5 succinct
 
-Someone asked what a thing is or how it works. Answer them, in chat, in words they already know.
+Someone asked what a thing is or how it works. Answer them, in chat, in words they already know, and keep it short.
 
 ## Routing
 
@@ -13,11 +13,11 @@ The deciding question is **what they want to end up holding**, not what words th
 
 | They want | Skill |
 |---|---|
-| To understand something | this one |
+| To understand something, briefly | this one |
 | A page to look at, keep or send | `simple-summary` |
 | A page with a mode, a look or an audience attached | `summary` |
 
-So "eli5 this regex" is this skill. "eli5 summary of the branch" is `simple-summary`, because they asked for a summary and summaries are files.
+So "eli5 succinct on this regex" or "eli5 this regex" is this skill. "eli5 summary of the branch" is `simple-summary`, because they asked for a summary and summaries are files.
 
 Never write a file from this skill. If the explanation turns out to want one, say so in one line at the end and let them ask.
 

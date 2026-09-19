@@ -1,6 +1,6 @@
 ---
 name: simple-summary
-description: One single-page HTML summary of a conversation, branch, work tree or set of user instructions. Visual, digestible, no modes and no options. Plus a short plain-language note in chat. Use when the user says "simple summary", "quick summary", "just summarise this", "keep it simple", or asks for a summary with nothing attached to it. If they attach a mode, a look or an audience, such as accessible, ADHD, artistic, animated, for a client or for handover, use `summary` instead. If they want an explanation in chat and no file at all, use `eli5`.
+description: One single-page HTML summary of a conversation, branch, work tree or set of user instructions. Visual, digestible, no modes and no options. Plus a short plain-language note in chat. Use when the user says "simple summary", "quick summary", "just summarise this", "keep it simple", or asks for a summary with nothing attached to it. If they attach a mode, a look or an audience, such as accessible, ADHD, artistic, animated, for a client or for handover, use `summary` instead. If they want an explanation in chat and no file at all, use `eli5-succinct`.
 ---
 
 # simple-summary
@@ -14,7 +14,7 @@ The plain one. Build the page, hand over the path, say one short thing about it.
 | "simple summary", "quick summary", bare "summary" | this one |
 | "summary, make it ADHD friendly" / "artistic" / "animate it" | `summary` |
 | "summary for a client" / "for handover" | `summary` |
-| "eli5 this function" (explain, no file) | `eli5` |
+| "eli5 succinct on this function" (explain, no file) | `eli5-succinct` |
 
 Do not offer modes. Do not mention the other skills. If they want more, they will ask.
 

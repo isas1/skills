@@ -1,6 +1,6 @@
 ---
 name: summary
-description: A single-page HTML summary of a conversation, branch, work tree or set of user instructions, with optional modes for accessible (ADHD, autistic, dyslexia), artistic and animated, plus audience variants for a client or a handover. Visual and digestible, charts and diagrams over long explanations. Use when the user asks for a summary with something attached to it, such as a mode, a look, an audience or a feeling. Examples include "summary, make it ADHD friendly", "recap but make it look good", "summarise this for a client", "wrap up and animate it", "handover page". If they want the plain version with no options, use `simple-summary`. If they want an explanation in chat and no file at all, use `eli5`.
+description: A single-page HTML summary of a conversation, branch, work tree or set of user instructions, with optional modes for accessible (ADHD, autistic, dyslexia), artistic and animated, plus audience variants for a client or a handover. Visual and digestible, charts and diagrams over long explanations. Use when the user asks for a summary with something attached to it, such as a mode, a look, an audience or a feeling. Examples include "summary, make it ADHD friendly", "recap but make it look good", "summarise this for a client", "wrap up and animate it", "handover page". If they want the plain version with no options, use `simple-summary`. If they want an explanation in chat and no file at all, use `eli5-succinct`.
 ---
 
 # summary
@@ -15,7 +15,7 @@ This skill owns anything about how the page should look or feel.
 |---|---|
 | "summary" with a mode, look or audience attached | this one |
 | "simple summary", bare "summary" | `simple-summary` |
-| "eli5 this function" (explain, no file) | `eli5` |
+| "eli5 succinct on this function" (explain, no file) | `eli5-succinct` |
 
 If you are already here and the user then asks for a mode, stay here. Do not re-route mid-task.
 

@@ -4,11 +4,11 @@ Three skills for explaining and summarising work. They route between themselves 
 
 | You want | Skill | You get |
 |---|---|---|
-| To understand something | [`eli5`](skills/eli5/SKILL.md) | A plain-language answer in chat. Never a file. |
+| To understand something, briefly | [`eli5-succinct`](skills/eli5-succinct/SKILL.md) | A short plain-language answer in chat. Never a file. |
 | A page to look at or send | [`simple-summary`](skills/simple-summary/SKILL.md) | One HTML page. No options. |
 | A page with a look or an audience | [`summary`](skills/summary/SKILL.md) | One HTML page, with modes. |
 
-So `eli5 this regex` explains it in chat, `simple summary` writes a page, and `summary, make it ADHD friendly` writes a page in accessible mode.
+So `eli5 succinct on this regex` explains it in chat, `simple summary` writes a page, and `summary, make it ADHD friendly` writes a page in accessible mode.
 
 ## Modes
 
@@ -33,7 +33,7 @@ Both read the actual target before writing (`git status`, `git log`, `git diff`,
 ## Install
 
 ```sh
-cp -r skills/eli5 ~/.claude/skills/
+cp -r skills/eli5-succinct ~/.claude/skills/
 cp -r skills/simple-summary ~/.claude/skills/
 cp -r skills/summary ~/.claude/skills/
 ```
