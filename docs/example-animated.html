@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skills — repo summary, animated</title>
+<style>
+:root{
+  --bg:#FAF9F7; --ink:#333333; --muted:#6B6B6B; --line:#E5E2DE; --surface:#F2EFEB;
+  --accent:#C4603D;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55}
+.page{max-width:920px;margin:0 auto;padding:64px 40px 80px}
+h1{font-size:40px;line-height:1.1;letter-spacing:-.02em;margin:0 0 10px;font-weight:700}
+h1 .dot{color:var(--accent)}
+.lede{font-size:19px;color:var(--muted);margin:0;max-width:44ch}
+h2{font-size:13px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0 0 18px}
+section{margin-top:48px}
+p{margin:0 0 10px;max-width:60ch}
+svg{display:block;max-width:100%;height:auto}
+
+/* every animated element's FINAL state is its default style */
+.rise{opacity:1;transform:none;animation:rise .55s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.d1{animation-delay:.06s}.d2{animation-delay:.12s}.d3{animation-delay:.18s}.d4{animation-delay:.24s}
+
+.hero{display:flex;align-items:center;gap:22px;margin:30px 0 0;flex-wrap:wrap}
+.hero .big{font-size:86px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--accent)}
+.hero .say{font-family:var(--mono);font-size:13.5px;line-height:1.7;color:var(--muted);max-width:22ch}
+.odo{display:inline-block;height:1em;overflow:hidden;vertical-align:baseline}
+.odo ol{list-style:none;margin:0;padding:0;margin-top:-2em;animation:roll .8s var(--ease) both}
+.odo li{height:1em;line-height:1}
+@keyframes roll{from{transform:translateY(2em)}}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.fact{background:var(--bg);padding:16px 18px}
+.fact .n{font-size:27px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.fact .l{font-size:13px;color:var(--muted);margin-top:3px}
+
+.draw{stroke-dasharray:var(--len);stroke-dashoffset:0;animation:drawin .8s var(--ease) both}
+@keyframes drawin{from{stroke-dashoffset:var(--len)}}
+.bar{transform-origin:left center;transform:scaleX(1);animation:grow .6s var(--ease) both}
+.b2{animation-delay:.08s}.b3{animation-delay:.16s}.b4{animation-delay:.24s}.b5{animation-delay:.32s}
+@keyframes grow{from{transform:scaleX(0)}}
+.wait{animation:breathe 3.2s linear infinite}
+@keyframes breathe{0%,100%{opacity:1}50%{opacity:.38}}
+
+.foot{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);
+      font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important}
+}
+@media print{
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  body{background:#fff}section{page-break-inside:avoid}
+}
+@media (max-width:720px){.page{padding:40px 20px 56px}.facts{grid-template-columns:repeat(2,1fr)}h1{font-size:32px}}
+</style></head><body>
+<div class="page">
+
+  <header class="rise">
+    <h1>skills<span class="dot">.</span></h1>
+    <p class="lede">Two Claude Code skills that route on what you end up holding, not on which words you used.</p>
+  </header>
+
+  <div class="hero rise d1">
+    <div class="big"><span class="odo" aria-label="2"><ol aria-hidden="true"><li>0</li><li>1</li><li>2</li></ol></span></div>
+    <div class="say">skills.<br>one answers in chat.<br>one writes a page.</div>
+  </div>
+
+  <section class="rise d2">
+    <h2>At a glance</h2>
+    <div class="facts">
+      <div class="fact"><div class="n">2</div><div class="l">skills</div></div>
+      <div class="fact"><div class="n">3</div><div class="l">modes, on <code>summary</code></div></div>
+      <div class="fact"><div class="n">0</div><div class="l">dependencies</div></div>
+      <div class="fact"><div class="n">1</div><div class="l">file out, always</div></div>
+    </div>
+  </section>
+
+  <section class="rise d3">
+    <h2>How a request routes</h2>
+    <svg viewBox="0 0 860 196" role="img" aria-label="A request splits two ways. eli5-succinct answers in chat and never writes a file. summary writes one HTML page, plain when nothing is attached and in accessible, artistic or animated mode when a mode is named.">
+      <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+        <text x="0" y="88" font-size="13" fill="#6B6B6B">you ask</text>
+        <circle cx="80" cy="96" r="6" fill="#C4603D"/>
+        <path class="draw" style="--len:560"
+              d="M80 96 C 160 96, 170 40, 270 40 M80 96 C 160 96, 170 140, 270 140 M290 156 L290 172 L290 172 L620 172 M400 172 L400 180 M620 172 L620 180"
+              fill="none" stroke="#333" stroke-width="1.8"/>
+        <circle cx="270" cy="40" r="4" fill="#333"/><circle cx="270" cy="140" r="4" fill="#333"/>
+
+        <text x="288" y="36" font-size="15" font-weight="600" fill="#333" font-family="ui-monospace,Menlo,Consolas,monospace">eli5-succinct</text>
+        <text x="288" y="56" font-size="13" fill="#6B6B6B">an answer in chat → never a file</text>
+
+        <text x="288" y="136" font-size="15" font-weight="600" fill="#333" font-family="ui-monospace,Menlo,Consolas,monospace">summary</text>
+        <text x="288" y="156" font-size="13" fill="#6B6B6B">one HTML page → always exactly one</text>
+        <text x="330" y="194" font-size="12.5" fill="#333">nothing attached → plain</text>
+        <text x="640" y="194" font-size="12.5" fill="#333">a mode named → that mode</text>
+      </g>
+    </svg>
+  </section>
+
+  <section class="rise d4">
+    <h2>Where the words are</h2>
+    <svg viewBox="0 0 860 148" role="img" aria-label="Bars of file size in lines. The summary page spec is 173 lines, artistic mode 81, animated 58, accessible 53, eli5-succinct 53. Modes load only when named.">
+      <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">
+        <g fill="#333" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="13">
+          <text x="0" y="18">summary spec</text><text x="0" y="46">artistic</text><text x="0" y="74">animated</text>
+          <text x="0" y="102">accessible</text><text x="0" y="130">eli5-succinct</text>
+        </g>
+        <g fill="#C4603D">
+          <rect class="bar"    x="140" y="6"   width="650" height="16" rx="2"/>
+          <rect class="bar b2" x="140" y="34"  width="304" height="16" rx="2"/>
+          <rect class="bar b3" x="140" y="62"  width="218" height="16" rx="2"/>
+          <rect class="bar b4" x="140" y="90"  width="199" height="16" rx="2"/>
+          <rect class="bar b5" x="140" y="118" width="199" height="16" rx="2"/>
+        </g>
+        <g fill="#6B6B6B">
+          <text x="802" y="18">173</text><text x="456" y="46">81</text><text x="370" y="74">58</text>
+          <text x="351" y="102">53</text><text x="351" y="130">53</text>
+        </g>
+      </g>
+    </svg>
+    <p style="font-size:13px;color:var(--muted)">Lines of Markdown. A mode is only read when you name it.</p>
+  </section>
+
+  <section class="rise d4">
+    <h2>Open, and still waiting</h2>
+    <svg viewBox="0 0 860 122" role="img" aria-label="Three open questions. Routing is fuzzy description matching, not a hard rule. Accessible is a mode and not the default, which is undecided. Skill paths shift between agent versions, so the README hedges.">
+      <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+        <g fill="none" stroke="#C4603D" stroke-width="2" stroke-dasharray="3 3">
+          <circle class="wait" cx="8" cy="12" r="6"/>
+          <circle class="wait" cx="8" cy="56" r="6" style="animation-delay:1s"/>
+          <circle class="wait" cx="8" cy="100" r="6" style="animation-delay:2s"/>
+        </g>
+        <g font-size="15" font-weight="600" fill="#333">
+          <text x="28" y="9">Routing is fuzzy matching, not a rule</text>
+          <text x="28" y="53">Accessible is a mode, not the default</text>
+          <text x="28" y="97">Skill paths shift between agent versions</text>
+        </g>
+        <g font-size="13" fill="#6B6B6B">
+          <text x="28" y="29">watch "eli5 summary of this branch" — it should return a file</text>
+          <text x="28" y="73">undecided whether it should be the other way round</text>
+          <text x="28" y="117">the README hedges rather than promising a path</text>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <div class="foot">
+    github.com/isas1/skills · animated mode · MIT<br>
+    motion is decoration only — every value above is in the page at first paint
+  </div>
+
+</div>
+</body></html>

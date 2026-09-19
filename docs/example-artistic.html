@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skills — repo summary, artistic</title>
+<style>
+:root{
+  --bg:#FAF9F7; --ink:#201E1C; --muted:#6B6B6B; --line:#E5E2DE;
+  --accent:#C4603D; --sand:#EFE7DA;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:16px;line-height:1.5;overflow-x:hidden}
+.wrap{position:relative;max-width:900px;margin:0 auto;padding:0 30px 96px}
+
+h1{font-size:clamp(44px,9vw,92px);line-height:.9;letter-spacing:-.045em;margin:0;font-weight:800}
+h1 .dot{color:var(--accent)}
+.sub{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+     color:var(--muted);margin:16px 0 0}
+header{padding:66px 0 0}
+
+h2{font-family:var(--mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;
+   color:var(--muted);font-weight:500;margin:0 0 18px}
+section{margin-top:64px}
+p{margin:0 0 10px;max-width:50ch;font-size:15px;color:#4A4642}
+.lede{font-size:17px;color:var(--ink);max-width:38ch}
+svg{display:block;max-width:100%;height:auto}
+
+/* THE MOTIF: one stroke enters from off-page and splits exactly once. */
+.fork{position:relative;left:50%;margin-left:-50vw;width:100vw;margin-top:34px}
+.fork .inner{max-width:900px;margin:0 auto}
+
+.huge{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:30px}
+.huge .fig{font-size:clamp(120px,22vw,210px);line-height:.92;font-weight:800;
+           letter-spacing:-.06em;color:var(--accent);margin:0;padding-top:.04em}
+.huge .say{font-family:var(--mono);font-size:14px;line-height:1.7;color:var(--ink);max-width:20ch}
+.huge .say b{color:var(--accent)}
+
+.band{position:relative;left:50%;margin-left:-50vw;width:100vw;background:var(--sand);
+      padding:36px 0 40px;margin-top:64px}
+.band .inner{max-width:900px;margin:0 auto;padding:0 30px}
+
+.rows{display:flex;align-items:flex-end;gap:9px;height:56px;margin-top:2px}
+.rows i{display:block;background:var(--ink);opacity:.8}
+.foot{margin-top:84px;padding-top:18px;border-top:1px solid var(--line);
+      font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;color:var(--muted);line-height:1.9}
+@media print{body{background:#fff}.band{-webkit-print-color-adjust:exact;print-color-adjust:exact}section{page-break-inside:avoid}}
+@media (max-width:620px){.wrap{padding:0 18px 72px}}
+</style></head><body>
+<div class="wrap">
+
+  <header>
+    <h1>skills<span class="dot">.</span></h1>
+    <p class="sub">two skills · three modes · zero dependencies · 418 lines</p>
+  </header>
+
+  <div class="huge">
+    <p class="fig">2</p>
+    <p class="say">ways a request can<br>come out of this repo.<br><b>You choose by what<br>you want to hold.</b></p>
+  </div>
+
+  <div class="fork">
+    <div class="inner">
+      <svg viewBox="0 0 960 190" role="img" aria-label="A single stroke enters from off the page and splits once. The upper limb ends at eli5-succinct, an answer in chat and never a file. The lower limb ends at summary, one HTML page, which splits again into the plain page when nothing is attached and accessible, artistic or animated when a mode is named.">
+        <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+          <path d="M0 95 L150 95" stroke="#201E1C" stroke-width="2.5" fill="none"/>
+          <path d="M150 95 C 210 95, 220 34, 300 34" stroke="#201E1C" stroke-width="2.5" fill="none"/>
+          <path d="M150 95 C 210 95, 220 150, 300 150" stroke="#201E1C" stroke-width="2.5" fill="none"/>
+          <circle cx="150" cy="95" r="7" fill="#C4603D"/>
+
+          <text x="316" y="29" font-size="17" font-weight="700" fill="#201E1C" font-family="ui-monospace,Menlo,Consolas,monospace">eli5-succinct</text>
+          <text x="316" y="50" font-size="13.5" fill="#6B6B6B">chat · never a file</text>
+
+          <text x="316" y="145" font-size="17" font-weight="700" fill="#201E1C" font-family="ui-monospace,Menlo,Consolas,monospace">summary</text>
+          <text x="316" y="166" font-size="13.5" fill="#6B6B6B">one HTML page · plain, or in a mode</text>
+
+          <path d="M660 34 L924 34 M660 150 L924 150" stroke="#E5E2DE" stroke-width="1.5"/>
+          <text x="700" y="29" font-size="12" fill="#6B6B6B" font-family="ui-monospace,Menlo,monospace">you read it and move on</text>
+          <text x="700" y="145" font-size="12" fill="#6B6B6B" font-family="ui-monospace,Menlo,monospace">you keep it, or you send it</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="inner">
+      <h2>The page spec is most of the weight</h2>
+      <svg viewBox="0 0 840 138" role="img" aria-label="Bars of file size in lines. The summary page spec is 173 lines, artistic mode 81, animated 58, accessible 53, and eli5-succinct 53.">
+        <g font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12">
+          <g fill="#201E1C" font-family="-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif" font-size="13">
+            <text x="0" y="17">summary spec</text><text x="0" y="45">artistic</text>
+            <text x="0" y="73">animated</text><text x="0" y="101">accessible</text><text x="0" y="129">eli5-succinct</text>
+          </g>
+          <g fill="#201E1C">
+            <rect x="130" y="5" width="650" height="16"/>
+            <rect x="130" y="33" width="304" height="16"/>
+            <rect x="130" y="61" width="218" height="16"/>
+            <rect x="130" y="89" width="199" height="16"/>
+            <rect x="130" y="117" width="199" height="16"/>
+          </g>
+          <g fill="#6B6B6B">
+            <text x="792" y="17">173</text><text x="446" y="45">81</text>
+            <text x="360" y="73">58</text><text x="341" y="101">53</text><text x="341" y="129">53</text>
+          </g>
+        </g>
+      </svg>
+      <p style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted);margin-top:14px">LINES OF MARKDOWN · MODES LOAD ONLY WHEN NAMED</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Five decisions, all closed</h2>
+    <svg viewBox="0 0 840 208" role="img" aria-label="Five settled decisions. One page skill, not two, because two drifted into two house styles. Route on output type, not vocabulary, because eli5 summary matched two skills. Modes live in separate files so the default stays cheap to load. Gather before writing, because summarising from memory invents status. No animation library, because a CDN link breaks the one-file rule.">
+      <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+        <g fill="#C4603D">
+          <circle cx="7" cy="14" r="5"/><circle cx="7" cy="54" r="5"/><circle cx="7" cy="94" r="5"/>
+          <circle cx="7" cy="134" r="5"/><circle cx="7" cy="174" r="5"/>
+        </g>
+        <g font-size="15" font-weight="700" fill="#201E1C">
+          <text x="26" y="19">One page skill, not two</text>
+          <text x="26" y="59">Route on output type, not vocabulary</text>
+          <text x="26" y="99">Modes live in separate files</text>
+          <text x="26" y="139">Gather before writing</text>
+          <text x="26" y="179">No animation library</text>
+        </g>
+        <g font-size="13" fill="#6B6B6B" font-family="ui-monospace,Menlo,Consolas,monospace">
+          <text x="400" y="19">two drifted into two house styles</text>
+          <text x="400" y="59">"eli5 summary" matched two skills</text>
+          <text x="400" y="99">the default stays cheap to load</text>
+          <text x="400" y="139">memory is where invented status comes from</text>
+          <text x="400" y="179">a CDN link breaks the one-file rule</text>
+        </g>
+        <g stroke="#E5E2DE">
+          <line x1="0" y1="34" x2="840" y2="34"/><line x1="0" y1="74" x2="840" y2="74"/>
+          <line x1="0" y1="114" x2="840" y2="114"/><line x1="0" y1="154" x2="840" y2="154"/>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <section>
+    <h2>Three still open</h2>
+    <svg viewBox="0 0 840 124" role="img" aria-label="Three open questions, drawn as dashed rings. Routing is fuzzy description matching, not a hard rule; the case to watch is eli5 summary of this branch, which should return a file. Accessible is a mode and not the default, and it is undecided whether that should be reversed. Skill paths shift between agent versions, so the README hedges.">
+      <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+        <g fill="none" stroke="#C4603D" stroke-width="2" stroke-dasharray="3 3">
+          <circle cx="8" cy="12" r="6"/><circle cx="8" cy="56" r="6"/><circle cx="8" cy="100" r="6"/>
+        </g>
+        <g font-size="15" font-weight="700" fill="#201E1C">
+          <text x="28" y="9">Routing is fuzzy matching, not a rule</text>
+          <text x="28" y="53">Accessible is a mode, not the default</text>
+          <text x="28" y="97">Skill paths shift between agent versions</text>
+        </g>
+        <g font-size="13" fill="#6B6B6B" font-family="ui-monospace,Menlo,Consolas,monospace">
+          <text x="28" y="29">watch "eli5 summary of this branch" — it should return a file</text>
+          <text x="28" y="73">undecided whether it should be the other way round</text>
+          <text x="28" y="117">the README hedges rather than promising a path</text>
+        </g>
+      </g>
+    </svg>
+  </section>
+
+  <div class="foot">
+    github.com/isas1/skills · artistic mode · MIT<br>
+    motif — the fork: one stroke, one split, two things you can end up holding
+  </div>
+
+</div>
+</body></html>

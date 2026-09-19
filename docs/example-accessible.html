@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>skills — repo summary, accessible</title>
+<style>
+:root{
+  --bg:#FAF9F7; --ink:#333333; --muted:#6B6B6B; --line:#E5E2DE; --surface:#F2EFEB;
+  --done:#4A6B4F; --open:#8A6A2F;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+     font-size:17px;line-height:1.7;letter-spacing:.008em}
+.page{max-width:760px;margin:0 auto;padding:44px 26px 64px}
+h1{font-size:34px;line-height:1.2;margin:0 0 8px;font-weight:700}
+h1 .dot{color:var(--open)}
+h2{font-size:20px;margin:0 0 16px;font-weight:700}
+p{margin:0 0 12px;max-width:62ch}
+.lede{color:var(--muted);margin:0 0 4px}
+.order{font-size:15px;color:var(--muted);margin:0}
+section{margin-top:42px}
+svg{display:block;max-width:100%;height:auto}
+figure{margin:0}
+figcaption{font-size:15px;color:var(--muted);margin-top:10px;max-width:62ch}
+
+.status{border:2px solid var(--done);border-radius:10px;background:var(--surface);
+        padding:16px 20px;margin:26px 0 0;display:flex;gap:16px;align-items:center}
+.status strong{display:block;font-size:18px}
+.status span{color:var(--muted);font-size:15px}
+
+.glance{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:26px}
+.glance li{min-width:120px}
+.glance .n{display:block;font-size:32px;font-weight:700;line-height:1.2}
+.glance .l{display:block;font-size:15px;color:var(--muted);line-height:1.4}
+
+table{border-collapse:collapse;width:100%;font-size:16px;margin-top:30px}
+th{text-align:left;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);
+   font-weight:700;padding:0 14px 8px 0;border-bottom:1px solid var(--line)}
+td{padding:12px 14px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.k{font-family:var(--mono);font-size:15px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+
+ul.items{list-style:none;margin:0;padding:0}
+ul.items li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--line)}
+ul.items b{display:block}
+ul.items span{color:var(--muted);font-size:16px}
+.key{display:flex;gap:24px;flex-wrap:wrap;font-size:15px;color:var(--muted);margin-top:16px}
+.key i{font-style:normal;display:inline-flex;gap:8px;align-items:center}
+.foot{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+      font-family:var(--mono);font-size:13px;color:var(--muted);line-height:1.9}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{body{background:#fff}section{page-break-inside:avoid}}
+@media (max-width:560px){.page{padding:30px 18px 48px}h1{font-size:28px}}
+</style></head><body>
+<div class="page">
+
+  <h1>skills<span class="dot">.</span></h1>
+  <p class="lede">What is in this repository, and what is still undecided.</p>
+  <p class="order">Four sections, in this order: Status. Numbers. How a request routes. What is open.</p>
+
+  <div class="status" role="status">
+    <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-label="Green tick: ready to install.">
+      <circle cx="17" cy="17" r="15" fill="none" stroke="#4A6B4F" stroke-width="2.5"/>
+      <path d="M10 17.5 L15 22.5 L24 12" fill="none" stroke="#4A6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <strong>Ready to install.</strong>
+      <span>Copy 2 folders. Nothing to build. 3 questions are still open.</span>
+    </div>
+  </div>
+
+  <section>
+    <h2>Numbers</h2>
+    <ul class="glance">
+      <li><span class="n">2</span><span class="l">Skills, down from 3</span></li>
+      <li><span class="n">3</span><span class="l">Modes, all on summary</span></li>
+      <li><span class="n">0</span><span class="l">Dependencies</span></li>
+      <li><span class="n">1</span><span class="l">File out, every time</span></li>
+      <li><span class="n">418</span><span class="l">Lines of Markdown</span></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How a request routes</h2>
+    <figure>
+      <svg viewBox="0 0 660 214" role="img" aria-label="A request splits two ways. Ask to understand something and eli5-succinct answers in chat, never writing a file. Ask for a page and summary writes one HTML file: the plain page when nothing is attached, or accessible, artistic or animated mode when a mode is named.">
+        <g font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif">
+          <text x="2" y="76" font-size="14" fill="#6B6B6B">you ask</text>
+          <circle cx="78" cy="84" r="6" fill="#8A6A2F"/>
+          <path d="M78 84 L130 84 L130 36 L188 36" fill="none" stroke="#333" stroke-width="2"/>
+          <path d="M78 84 L130 84 L130 132 L188 132" fill="none" stroke="#333" stroke-width="2"/>
+
+          <text x="198" y="31" font-size="16" font-weight="700" fill="#333" font-family="ui-monospace,Menlo,Consolas,monospace">eli5-succinct</text>
+          <text x="198" y="51" font-size="14" fill="#6B6B6B">an answer in chat. Never a file.</text>
+
+          <text x="198" y="127" font-size="16" font-weight="700" fill="#333" font-family="ui-monospace,Menlo,Consolas,monospace">summary</text>
+          <text x="198" y="147" font-size="14" fill="#6B6B6B">one HTML page. Always exactly one.</text>
+          <path d="M214 156 L214 174 L520 174 M282 174 L282 182 M520 174 L520 182" fill="none" stroke="#E5E2DE" stroke-width="2"/>
+          <text x="230" y="200" font-size="13.5" fill="#333">say nothing → plain</text>
+          <text x="470" y="200" font-size="13.5" fill="#333">name a mode → that mode</text>
+        </g>
+      </svg>
+      <figcaption>The question is what you end up holding. Not which words you used.</figcaption>
+    </figure>
+
+    <table>
+      <tr><th>Skill</th><th>Say</th><th>You get</th></tr>
+      <tr><td class="k">eli5-succinct</td><td>"eli5 succinct on this function"</td><td>A short answer in chat. Never a file.</td></tr>
+      <tr><td class="k">summary</td><td>"summary" or "summary, make it ADHD friendly"</td><td>One HTML page, plain or in a mode.</td></tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>What is open</h2>
+    <ul class="items">
+      <li>
+        <svg width="22" height="22" viewBox="0 0 22 22" role="img" aria-label="Open"><circle cx="11" cy="11" r="9" fill="none" stroke="#8A6A2F" stroke-width="2.5"/></svg>
+        <div><b>Routing is fuzzy matching</b><span>It is description matching, not a hard rule. Watch "eli5 summary of this branch". It should return a file.</span></div>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 22 22" role="img" aria-label="Open"><circle cx="11" cy="11" r="9" fill="none" stroke="#8A6A2F" stroke-width="2.5"/></svg>
+        <div><b>Accessible is a mode, not the default</b><span>Undecided. It could be the default instead, with a plain opt-out.</span></div>
+      </li>
+      <li>
+        <svg width="22" height="22" viewBox="0 0 22 22" role="img" aria-label="Open"><circle cx="11" cy="11" r="9" fill="none" stroke="#8A6A2F" stroke-width="2.5"/></svg>
+        <div><b>Skill paths move between versions</b><span>The README gives no fixed path. It hedges on purpose.</span></div>
+      </li>
+    </ul>
+    <p class="key">
+      <i><svg width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="#8A6A2F" stroke-width="3"/></svg> open</i>
+      <i><svg width="16" height="16" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="#4A6B4F"/></svg> settled</i>
+      <i>3 open. None of them stops you installing it.</i>
+    </p>
+  </section>
+
+  <div class="status" role="status">
+    <svg width="34" height="34" viewBox="0 0 34 34" role="img" aria-label="Green tick: ready to install.">
+      <circle cx="17" cy="17" r="15" fill="none" stroke="#4A6B4F" stroke-width="2.5"/>
+      <path d="M10 17.5 L15 22.5 L24 12" fill="none" stroke="#4A6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div>
+      <strong>Ready to install.</strong>
+      <span>Copy 2 folders into ~/.claude/skills. Nothing to build.</span>
+    </div>
+  </div>
+
+  <div class="foot">github.com/isas1/skills · accessible mode · MIT</div>
+
+</div>
+</body></html>
