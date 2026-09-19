@@ -51,20 +51,38 @@ Concretely, that means:
 **Flow.** The page is a path, not a pile. Each section answers the question the previous one raised. Start with the answer, never a preamble.
 
 1. **Title plus one line.** What this is, in a sentence.
-2. **At a glance.** Three to five short facts, states or numbers. Cards or a strip.
-3. **The body.** The actual shape of the work, carried by visuals.
-4. **Decisions made.** One line each, with the reason.
-5. **Open and next.** Unresolved questions, then next steps. Omit either if empty.
+2. **At a glance.** Three to five numbers or states, set large. Numerals, not sentences.
+3. **The body.** The actual shape of the work, carried by drawings. This is most of the page.
+4. **Decisions made.** At most five, one short line each, every one paired with a mark showing its state. More than five means chart them instead.
+5. **Open and next.** Status marks with a few words beside them. Omit either if empty.
+
+Sections 4 and 5 are where pages turn into documents. Keep them visual or keep them out.
 
 **Reading patterns.** Top of page is scanned in a Z: title top-left, the single most important fact top-right, entry into the body along the diagonal. Below that, text-heavy sections are scanned in an F: front-load every heading and every bullet with the word that matters, because the right-hand end of each line does not get read.
 
-**Visual over verbal.** Reach for the picture first:
-- sequential → a flow or timeline
-- quantity or change → a chart
+**A table is not a visual.** It is text arranged in a grid. So are bullets. If the page is mostly tables and bullets, the skill has failed, however tidy it looks.
+
+**Visual over verbal.** Reach for the drawing first:
+- sequential → a flow or a timeline
+- quantity or change → a bar, line or dot chart
+- proportion or share → a stacked bar or a dot grid
 - something that changed → two columns, before and after
-- parallel items → a short table
+- state across several items → a grid of marks, not words
+- how things connect → a node diagram
+- one number that matters → set it enormous, on its own
+
+At most one table per page, and only for genuinely parallel short items. If you want a second table, draw it instead.
 
 If a paragraph is doing a diagram's job, replace it. Every section must earn its place. Cut anything that is only there for symmetry.
+
+**Budget.** These are limits, not suggestions. Count them before you finish.
+
+- **Under 200 words of prose on the whole page.** Headings, labels and figures do not count. Body text does.
+- **Every section contains a drawing.** A section that is only words is a failed section. Draw it or cut it.
+- **Never three text blocks in a row.** If you have written three, replace one with a picture.
+- **No continuous prose longer than two sentences**, anywhere.
+
+If the content genuinely resists being drawn, that is a sign the page has too many sections, not that it needs more words.
 
 **Typography.**
 - System font stack, unless the project has its own type. If it does, use the project's.
