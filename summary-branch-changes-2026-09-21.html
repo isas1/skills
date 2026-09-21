@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Branch changes — skills repo</title>
+<style>
+  :root{
+    --bg:#FAF9F7; --ink:#333333; --muted:#6B6B6B; --hair:#E5E2DE;
+    --raise:#F2EFEB; --accent:#A8522E; --accent-soft:#EBD9CE;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Liberation Sans",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono","Cascadia Code","Roboto Mono","DejaVu Sans Mono",Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.55;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:56px 24px 80px}
+  header{margin-bottom:44px}
+  h1{font-size:30px; line-height:1.2; margin:0 0 10px; letter-spacing:-0.01em}
+  .lede{color:var(--muted); margin:0; max-width:60ch}
+  .meta{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:14px}
+  section{margin-top:52px}
+  h2{font-size:13px; text-transform:uppercase; letter-spacing:0.08em;
+     color:var(--muted); margin:0 0 20px; font-weight:600}
+  p{max-width:62ch; margin:0 0 14px}
+  /* stat strip */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+  .stat{background:var(--raise); border-radius:10px; padding:16px 16px 14px}
+  .stat .n{font-family:var(--mono); font-size:26px; line-height:1; color:var(--accent)}
+  .stat .n small{font-size:15px; color:var(--muted)}
+  .stat .l{font-size:12.5px; color:var(--muted); margin-top:8px; line-height:1.35}
+  /* before/after */
+  .ba{display:grid; grid-template-columns:1fr 1fr; gap:14px; align-items:stretch}
+  .col{border:1px solid var(--hair); border-radius:10px; padding:18px 18px 14px}
+  .col.after{border-color:var(--accent-soft); background:#FBF4EF}
+  .tag{font-family:var(--mono); font-size:11px; letter-spacing:0.06em;
+       text-transform:uppercase; color:var(--muted); margin:0 0 12px}
+  .after .tag{color:var(--accent)}
+  .col ul{margin:0; padding:0; list-style:none}
+  .col li{font-size:14.5px; line-height:1.4; padding:7px 0; border-top:1px solid var(--hair)}
+  .col li:first-child{border-top:0}
+  .after li{border-top-color:var(--accent-soft)}
+  /* triage grid */
+  .items{display:grid; gap:0}
+  .item{display:grid; grid-template-columns:26px 1fr auto; gap:14px;
+        align-items:baseline; padding:13px 0; border-top:1px solid var(--hair)}
+  .item:first-child{border-top:0}
+  .mk{width:16px; height:16px; margin-top:3px}
+  .item .what{font-size:15px}
+  .item .what b{font-weight:600}
+  .item .src{font-family:var(--mono); font-size:11.5px; color:var(--muted); white-space:nowrap}
+  .state{font-family:var(--mono); font-size:11px; letter-spacing:0.04em;
+         text-transform:uppercase}
+  .shipped{color:var(--accent)}
+  .declined{color:var(--muted)}
+  /* decisions */
+  .dec{display:grid; gap:12px}
+  .drow{display:grid; grid-template-columns:18px 1fr; gap:12px; align-items:baseline}
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--accent); margin-top:8px}
+  .drow p{margin:0; font-size:15px}
+  /* next */
+  .next{border-left:3px solid var(--accent); padding:4px 0 4px 18px}
+  .next p{margin:0 0 8px; font-size:15.5px}
+  .next p:last-child{margin:0}
+  code{font-family:var(--mono); font-size:0.86em; background:var(--raise);
+       padding:1px 5px; border-radius:4px}
+  a{color:var(--accent)}
+  @media (max-width:600px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .ba{grid-template-columns:1fr}
+    .item{grid-template-columns:22px 1fr; }
+    .item .src{grid-column:2; margin-top:2px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Reddit feedback, turned into changes</h1>
+    <p class="lede">One branch that ports the concrete, upvoted suggestions from the two Reddit threads about this repo into the README and the <code>eli5-succinct</code> skill.</p>
+    <p class="meta">branch claude/skills-repo-improvements-ssm0hk · base main · PR #4</p>
+  </header>
+
+  <section aria-label="At a glance">
+    <div class="stats">
+      <div class="stat"><div class="n">2</div><div class="l">files touched</div></div>
+      <div class="stat"><div class="n">+43<small> / −1</small></div><div class="l">lines changed</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">suggestions shipped</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">considered, not done</div></div>
+    </div>
+  </section>
+
+  <section aria-label="Before and after">
+    <h2>Before → after</h2>
+    <div class="ba">
+      <div class="col before">
+        <p class="tag">Before</p>
+        <ul>
+          <li>ELI5 was fixed — a brevity switch only</li>
+          <li>No technical / STE register</li>
+          <li>Yes/no questions answered mid-paragraph</li>
+          <li>README showed skills only; no no-install path</li>
+        </ul>
+      </div>
+      <div class="col after">
+        <p class="tag">After</p>
+        <ul>
+          <li>Number is an audience dial: <code>eli5</code> / <code>15</code> / <code>18</code></li>
+          <li>ASD-STE100 register: precise, not dumbed down</li>
+          <li>Yes/No first, on its own line, then explain</li>
+          <li>README leads with copy-paste one-liners</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="From feedback to change">
+    <h2>Each thread comment, and what became of it</h2>
+    <div class="items">
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#A8522E" stroke-width="1.5"/><path d="M4.5 8.2l2.2 2.2 4.8-5" fill="none" stroke="#A8522E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="what"><b>Skills are overkill</b> — surface the one-liners so nobody needs to install</div>
+        <div class="src">MindfulK9Coach · OP</div>
+      </div>
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#A8522E" stroke-width="1.5"/><path d="M4.5 8.2l2.2 2.2 4.8-5" fill="none" stroke="#A8522E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="what"><b>ELI5 / ELI18</b> — the number should set the audience</div>
+        <div class="src">Techhead7890 · OP</div>
+      </div>
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#A8522E" stroke-width="1.5"/><path d="M4.5 8.2l2.2 2.2 4.8-5" fill="none" stroke="#A8522E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="what"><b>ASD-STE100</b> — succinct without dumbing down</div>
+        <div class="src">isopropoflexx</div>
+      </div>
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#A8522E" stroke-width="1.5"/><path d="M4.5 8.2l2.2 2.2 4.8-5" fill="none" stroke="#A8522E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="what"><b>Yes or no, then explain</b> — a focused-answer shape</div>
+        <div class="src">ananbd</div>
+      </div>
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#B5B0A8" stroke-width="1.5"/><line x1="5" y1="8" x2="11" y2="8" stroke="#B5B0A8" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="what"><span class="state declined">not done</span> &nbsp;<b>Use RTK</b> — thread never pinned down what it is here</div>
+        <div class="src">xerj-ai</div>
+      </div>
+
+      <div class="item">
+        <svg class="mk" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="#B5B0A8" stroke-width="1.5"/><line x1="5" y1="8" x2="11" y2="8" stroke="#B5B0A8" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <div class="what"><span class="state declined">not done</span> &nbsp;<b>Merge into one skill</b> — OP kept chat vs. file split on purpose</div>
+        <div class="src">zkoolkyle · Sairefer</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section aria-label="Decisions made">
+    <h2>Decisions</h2>
+    <div class="dec">
+      <div class="drow"><span class="dot"></span><p>Put the one-liners <b>first</b> in the README — the most common complaint was that a skill is unnecessary, so lead by agreeing.</p></div>
+      <div class="drow"><span class="dot"></span><p>The number changes <b>assumed background, never brevity or respect</b> — documented as a dial, not a talk-down.</p></div>
+      <div class="drow"><span class="dot"></span><p>STE stays a lightweight <b>register note</b>, not a new mode file — it belongs with how <code>eli5</code> already explains.</p></div>
+      <div class="drow"><span class="dot"></span><p>Left the earlier 2-skill + <code>modes/</code> refactor alone — it already answered the structural criticism.</p></div>
+    </div>
+  </section>
+
+  <section aria-label="Open and next">
+    <h2>Open · next</h2>
+    <div class="next">
+      <p><b>PR #4 is open for review</b> — docs and skill instructions only, no code to test.</p>
+      <p>Waiting on: a review, and your call on whether I should watch the PR for CI and comments.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
